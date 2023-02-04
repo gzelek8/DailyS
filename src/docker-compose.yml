@@ -9,31 +9,29 @@ services:
       dockerfile: Dockerfile-local
     ports:
      - "8000:80"
-    # depends_on:
-    #  - "postgres"
+    depends_on:
+     - "postgres"
     networks:
       - DailyS-network
-    # environment:
-    #   DB_CONNECTION_STRING: "host=postgres;port=5432;database=DailyS;username=user;password=password"
+    environment:
+      DB_CONNECTION_STRING: "host=postgres;port=5432;database=DailyS;username=user;password=password"
 
-  # postgres:
-  #   container_name: 'postgres'
-  #   image: postgres
-  #   environment:
-  #     # change this for a "real" app!
-  #     POSTGRES_USER: user
-  #     POSTGRES_PASSWORD: password
-  #     POSTGRES_DB: DailyS
-  #   networks:
-  #     - DailyS-network
-  #   ports:
-  #     -5432:5432
-  #   restart: always
-  #   volumes:
-  #     - postgres_data:/var/lib/postgresql/data
+  postgres:
+    container_name: 'postgres'
+    image: postgres
+    environment:
+      # change this for a "real" app!
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: DailyS
+    networks:
+      - DailyS-network
+    ports:
+      - 5432:5432
+    restart: always
 
 networks:
   DailyS-network:
     driver: bridge
-# volumes:
-#   postgres_data:
+volumes:
+  postgres_data:
