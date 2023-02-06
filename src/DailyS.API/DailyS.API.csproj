@@ -14,8 +14,6 @@
   	<ItemGroup>
 		<ProjectReference Include="..\DailyS.Application\DailyS.Application.csproj" />
 		<ProjectReference Include="..\DailyS.Infrastructure\DailyS.Infrastructure.csproj" />
-		<ProjectReference Include="..\DailyS.Persistence\DailyS.Persistence.csproj" />
-		<ProjectReference Include="..\DailyS.Identity\DailyS.Identity.csproj" />
 	</ItemGroup>
 
 </Project>
